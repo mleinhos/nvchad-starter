@@ -26,17 +26,18 @@ end
 
 
 -- filetype plugin is better suited for this but I can't figure it out
+--[[
 vim.api.nvim_create_augroup('BasicCFormat', {clear = true})
 
 vim.api.nvim_create_autocmd(
   {"BufRead", "BufNewFile"},
-    --'Filetype',
     {
       group = 'BasicCFormat',
       pattern = { '*.c', '*.cpp', '*.h' },
       command = 'setlocal expandtab! tabstop=8 shiftwidth=8 autoindent smartindent',
   }
 )
+--]]
 
 -- vim.opt.cinoptions=
 
