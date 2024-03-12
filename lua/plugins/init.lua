@@ -80,16 +80,6 @@ local plugins = {
   },
   --]]
 
-  --[[
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
-    config = function()
-       require "configs.null-ls"
-    end,
-  },
-  --]]
-
   {
     "williamboman/mason.nvim",
     opts = {
