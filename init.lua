@@ -34,6 +34,44 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
 
+require("cscope_maps").setup()
+
+--[[
+local conform_opts = require("configs.conform")
+require("conform").setup(conform_opts)
+--]]
+
+--[[
+local conform = require("conform")
+vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+		conform.format({
+		lsp_fallback = true,
+		async = false,
+		timeout_ms = 1000,
+	})
+	end, { desc = "Format file or range (in visual mode)" })
+--]]
+
+--require("filetype")
+  --[[
+require("filetype").setup({
+  -- [[
+  function_extensions = {
+    ["c"] = function()
+      --vim.bo.filetype = "cpp"
+      -- Remove annoying indent jumping
+      -- vim.bo.cinoptions = vim.bo.cinoptions .. "L0"
+      -- vim.opt.expandtab = false
+      -- vim.opt.shiftwidth = 8
+      -- vim.opt.smartindent = true
+      -- vim.opt.autoindent = true
+      -- vim.opt.tabstop = 8
+    end,
+  }
+  -- ]]
+-- })
+  --]]
+
 vim.schedule(function()
   require "mappings"
 end)
